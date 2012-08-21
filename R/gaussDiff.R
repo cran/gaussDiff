@@ -13,9 +13,9 @@
 ##--------------------------
 
 ### general wrapper function
-normdiff <- function(mu1,sigma1=NULL,mu2,sigma2=sigma1,inv=FALSE,s=0.5,method=c("Mahalanobis","KL","J","Chisq","Hellinger","L2","Euclidian")){
+normdiff <- function(mu1,sigma1=NULL,mu2,sigma2=sigma1,inv=FALSE,s=0.5,method=c("Mahalanobis","KL","J","Chisq","Hellinger","L2","Euclidean")){
   ## maybe I catch some erros, checking simgas for square and symmetry
-  ## Euclidian for having this also in the same wrapper
+  ## Euclidean for having this also in the same wrapper
   d <- switch(match.arg(method),
               Mahalanobis=normdiff.maha(mu1,sigma1,mu2),
               KL=normdiff.KL(mu1,sigma1,mu2,sigma2),
@@ -23,7 +23,7 @@ normdiff <- function(mu1,sigma1=NULL,mu2,sigma2=sigma1,inv=FALSE,s=0.5,method=c(
               Chisq=normdiff.Chisq(mu1,sigma1,mu2,sigma2),
               Hellinger=normdiff.Hellinger(mu1,sigma1,mu2,sigma2),
               L2=normdiff.L2(mu1,sigma1,mu2,sigma2),
-              Euclidian=sqrt(sum((mu1-mu2)**2)))
+              Euclidean=sqrt(sum((mu1-mu2)**2)))
   class(d) <- "normdiff"
   attr(d,"method") <- match.arg(method)
   if(!is.null(inv)) attr(d,"inverse") <- inv

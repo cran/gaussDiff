@@ -11,14 +11,14 @@
 \alias{print.normdiff}
 \title{Difference measures for multivariate Gaussian pdfs}
 \description{Various difference measures for Gaussian pdfs are
-  implemented: Euclidian distance of the means, Mahalanobis
+  implemented: Euclidean distance of the means, Mahalanobis
   distance, Kullback-Leibler divergence, J-Coefficient, 
   Minkowski L2-distance, Chi-square divergence and the Hellinger
   coefficient which is a similarity measure.
 }
 \usage{normdiff(mu1,sigma1=NULL,mu2,sigma2=sigma1,inv=FALSE,s=0.5,
 method=c("Mahalanobis","KL","J","Chisq",
-"Hellinger","L2","Euclidian"))
+"Hellinger","L2","Euclidean"))
 }
 \arguments{
   \item{mu1}{mean value of pdf 1, a vector}
@@ -46,8 +46,8 @@ sig1 <- diag(c(1,1,1))
 mu2 <- c(1,1,1)
 sig2 <- diag(c(0.5,0.5,0.5))
 
-## Euclidian distance
-normdiff(mu1=mu1,mu2=mu2,method="Euclidian")
+## Euclidean distance
+normdiff(mu1=mu1,mu2=mu2,method="Euclidean")
 
 ## Mahalanobis distance
 normdiff(mu1=mu1,sigma1=sig1,mu2=mu2,method="Mahalanobis")
@@ -68,7 +68,7 @@ normdiff(mu1=mu1,sigma1=sig1,mu2=mu2,sigma2=sig2,method="L2")
 normdiff(mu1=mu1,sigma1=sig1,mu2=mu2,sigma2=sig2,method="Hellinger")
 }
 \author{
-  Henning Rust, \email{henning.rust@lsce.ipsl.fr}
+  Henning Rust, \email{henning.rust@met.fu-berlin.de}
 }
 \keyword{distribution}
 \keyword{multivariate}
